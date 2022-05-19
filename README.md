@@ -1,16 +1,13 @@
-# ger
+# GERÊNCIA DE ESTADO
 
-A new Flutter project.
+Aqui trataremos as gerências de estado padrões do flutter sem usar os packages externos. Em síntese, veremos setState, ChangeNotifier,ValueNotifier, Streams(Bloc Pattern), mas não usaremos o bloc provider. Desenvolvi estes conceitos aplicando num projeto de imc.
 
-## Getting Started
+## Dependências
+> - [`syncfusion_flutter_gauges:`]() auxília na criação de gráficos.
+> - [`currency_text_input_formatter`]() auxília na formatação como por exemplo a máscara.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# SetState
+> apesar de setState resolver muitos problemas, porém ele tem vários problemas:
+> - rebiuda a tela toda
+> - o grande problema, fazer um widget filho atualizar o pai
+> - complexidade em usar os componentes de outras telas.
