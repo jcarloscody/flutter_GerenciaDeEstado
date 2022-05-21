@@ -7,27 +7,23 @@ import 'package:ger/widgets/imc_gauge_range.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
-class ImcSetstatePage extends StatefulWidget {
-  const ImcSetstatePage({Key? key}) : super(key: key);
+class ImcValueNotifierPage extends StatefulWidget {
+  const ImcValueNotifierPage({Key? key}) : super(key: key);
 
   @override
-  State<ImcSetstatePage> createState() => _ImcSetstatePageState();
+  State<ImcValueNotifierPage> createState() => _ImcValueNotifierPageState();
 }
 
-class _ImcSetstatePageState extends State<ImcSetstatePage> {
+class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
   final pesoEC = TextEditingController();
   final alturaEC = TextEditingController();
-  var imc = 0.0;
+  var imc = ValueNotifier(0.0);
   final formKey = GlobalKey<FormState>();
 
   void _calcularIMC({required double peso, required double altura}) {
-    setState(() {
-      imc = 0;
-    });
-    Future.delayed(Duration(seconds: 1));
-    setState(() {
-      imc = peso / pow(altura, 2);
-    });
+    imc.value = 0;
+    Future.delayed(const Duration(seconds: 1));
+    imc.value = peso / pow(altura, 2);
   }
 
   @override
@@ -50,7 +46,11 @@ class _ImcSetstatePageState extends State<ImcSetstatePage> {
             padding: const EdgeInsets.all(8),
             child: Column(
               children: [
-                ImcGauge(imc: imc),
+                ValueListenableBuilder<double>(
+                    valueListenable: imc,
+                    builder: (context, value, child) {
+                      return ImcGauge(imc: value);
+                    }),
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: pesoEC,

@@ -11,3 +11,6 @@ Aqui trataremos as gerências de estado padrões do flutter sem usar os packages
 > - rebiuda a tela toda
 > - o grande problema, fazer um widget filho atualizar o pai
 > - complexidade em usar os componentes de outras telas.
+
+# ValueNotifier
+> é uma class do flutter que funciona com reatividade, ou seja, toda vez que seu valor for alterado será mandado rebiudar o widget específico que ela tem.Em síntese, o SetState rebiuda a tela toda, agora com o changeNotifier apenas uma parte da tela é reconstruído..
