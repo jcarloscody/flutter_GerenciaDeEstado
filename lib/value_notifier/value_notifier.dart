@@ -20,9 +20,9 @@ class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
   var imc = ValueNotifier(0.0);
   final formKey = GlobalKey<FormState>();
 
-  void _calcularIMC({required double peso, required double altura}) {
+  void _calcularIMC({required double peso, required double altura}) async {
     imc.value = 0;
-    Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     imc.value = peso / pow(altura, 2);
   }
 
@@ -37,7 +37,7 @@ class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Imc SetState'),
+        title: const Text('Imc Value Notifier'),
       ),
       body: SingleChildScrollView(
         child: Form(
