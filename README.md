@@ -22,5 +22,5 @@ Aqui trataremos as gerências de estado padrões do flutter sem usar os packages
 
 # Bloc Pattern
 > [**Review Stream**](https://github.com/jcarloscody/dart_Stream) revisão
-> é a utilização de stream para atualização do estado.
+> - é a utilização de stream para atualização do estado.
 > 
